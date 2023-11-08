@@ -3,6 +3,9 @@
 #include <string.h>
 #include <locale.h>
 #include <ctype.h>
+#include "clientF.h"
+#include "disponiveis.h"
+#include "locados.h"
 
 #define Tam_Assunto 101
 #define Tam_Nome 51
