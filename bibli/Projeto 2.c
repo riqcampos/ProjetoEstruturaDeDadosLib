@@ -145,14 +145,26 @@ Cliente* Aux_Cliente(Cliente *list, Livros_Emprestados *emprestado, int Cd_Clien
     aux = (Cliente*)malloc(sizeof(Cliente));
     aux->cd_Identificacao = Cd_Cliente;
     strcpy(aux->Nome, nome);
-    if(emprestado == NULL || aux->Emprestimo == NULL)
+    printf("vaca\n");
+    if(emprestado == NULL)
     {
-        aux->Emprestimo = emprestado;
+        printf ("\nArma\n");
+        aux->Emprestimo = NULL;
     }
     else
     {
-        emprestado->prox = aux->Emprestimo;
-        aux->Emprestimo = emprestado;
+        printf("munição\n");
+        if(list->Emprestimo == NULL)
+        {
+            printf ("\nhomossapiens\n");
+            aux->Emprestimo = emprestado;
+        }
+        else
+        {
+            printf("\npaciencia\n");
+            emprestado->prox = aux->Emprestimo;
+            aux->Emprestimo = emprestado;
+        }
     }
     aux->prox = list;
     return aux;
@@ -1901,13 +1913,85 @@ int main()
                     {
                         if(opcao2 == 1)
                         {
-                            //Visualizar os livros disponíveis procurando pelo código.
+                            do
+                            {
+                                system("cls");
+                                printf("Digite o código do livro ao lado: ");
+                                scanf("%i", &cd_aux_Disponivel);
+                                if(cd_aux_Disponivel < 1)
+                                {
+                                    printf("OOPS!! não se tem código de livros disponíveis menores ou igual a 0.\n\n");
+                                    system("pause");
+                                    system("cls");
+                                }
+                                else
+                                {
+                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel))
+                                    {
+                                        identificador = 0;
+                                        system("cls");
+                                        //colocar a função de impressão da Visualização dos livros disponíveis procurando por codigo.
+                                        system("pause");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        printf("OOPS!! o codigo do livro não foi encontrado.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                }
+                                printf("Digite qualquer coisa diferente de \"n ou N\" para continuar digitando um código: ");
+                                scanf("%s", &res[0]);
+                                res[0] = toupper(res[0]);
+                            }while(res[0] != 'N');
                         }
                         else
                         {
                             if(opcao2 == 2)
                             {
-                                //Visualizar os livros disponíveis procurando pelo titulo.
+                                do
+                                {
+                                    system("cls");
+                                    printf("Digite o título do livro: ");
+                                    fflush(stdin);
+                                    gets(titulo);
+                                    if(titulo[0] == ' ')
+                                    {
+                                        printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                    else
+                                    {
+                                        titulo[0] = toupper(titulo[0]);
+                                        for(i = 1; i < Tam_Nome; i++)
+                                        {
+                                            if(isdigit(titulo[i]) == 0)
+                                            {
+                                                titulo[i] = tolower(titulo[i]);
+                                            }
+                                        }
+                                        if(Identificador_livro_existente(L_D, titulo))
+                                        {
+                                            system("cls");
+                                            //colocar a função de impressão da Visualização dos livros disponíveis procurando por título.
+                                            system("pause");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            printf("OOPS!! o título do livro não foi encontrado.\n\n");
+
+                                            system("pause");
+                                            system("cls");
+                                        }
+                                    }
+                                    
+                                    printf("Digite qualquer coisa diferente de \"n ou N\" para continuar digitando um título: ");
+                                    scanf("%s", &res[0]);
+                                    res[0] = toupper(res[0]);
+                                }while(res[0] != 'N');
                             }
                             else
                             {
@@ -1919,13 +2003,105 @@ int main()
                     {
                         if(opcao2 == 1)
                         {
-                            //Visualizar todos os clientes procurando pelo código.
+                            do
+                            {
+                                system("cls");
+                                printf("Digite o código do cliente ao lado: ");
+                                scanf("%i", &cd_aux_Disponivel);
+                                if(cd_aux_Disponivel < 1)
+                                {
+                                    printf("OOPS!! não se tem códigos de cliente menor ou igual a 0.\n\n");
+                                    system("pause");
+                                    system("cls");
+                                }
+                                else
+                                {
+                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel))
+                                    {
+                                        identificador = 0;
+                                        system("cls");
+                                        //colocar a função de impressão da visualizar de todos os clientes procurando pelo código.
+                                        system("pause");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        printf("OOPS!! o codigo do cliente não foi encontrado.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                }
+                                printf("Digite qualquer coisa diferente de \"n ou N\" para continuar digitando um código: ");
+                                scanf("%s", &res[0]);
+                                res[0] = toupper(res[0]);
+                            }while(res[0] != 'N');
                         }
                         else
                         {
                             if(opcao2 == 2)
                             {
-                                //Visualizar todos os clientes procurando pelo nome.
+                                do
+                                {
+                                    system("cls");
+                                    printf("Digite o nome do cliente: ");
+                                    fflush(stdin);
+                                    gets(nome);
+                                    if(titulo[0] == ' ')
+                                    {
+                                        printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                    else
+                                    {
+                                        if(isdigit(nome[0]))
+                                        {
+                                            printf("Não se pode ter número no nome do cliente.\n\n");
+                                            system("pause");
+                                            system("cls");
+                                        }
+                                        else
+                                        {
+                                            nome[0] = toupper(nome[0]);
+                                            identificador = 0;
+                                            for(i = 1; i < Tam_Nome; i++)
+                                            {
+                                                if(isdigit(nome[i]))
+                                                {
+                                                    identificador++;
+                                                    break;
+                                                }
+                                                nome[i] = tolower(nome[i]);
+                                            }
+                                            if(identificador != 0)
+                                            {
+                                                identificador = 0;
+                                                printf("Não se pode ter digitação de número no nome do cliente.\n\n");
+                                                system("pause");
+                                                system("cls");
+                                            }
+                                            else
+                                            {
+                                                if(Identificador_livro_existente(L_D, titulo))
+                                                {
+                                                    system("cls");
+                                                    //colocar a função de impressão da Visualizar todos os clientes procurando pelo nome.
+                                                    system("pause");
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    printf("OOPS!! o nome do cliente não foi encontrado.\n\n");
+                                                    system("pause");
+                                                    system("cls");
+                                                }
+                                            }
+                                        }
+                                    }
+                                    printf("Digite qualquer coisa diferente de \"n ou N\" para continuar digitando um título: ");
+                                    scanf("%s", &res[0]);
+                                    res[0] = toupper(res[0]);
+                                }while(res[0] != 'N');
                             }
                             else
                             {
@@ -1935,9 +2111,9 @@ int main()
                     }
                 }
 
-                system("cls");
                 while(1)
                 {
+                    system("cls");
                     printf("Escolha uma das opções abaixo: \n");
                     if(opcao == 5)
                     {
