@@ -742,24 +742,29 @@ void print_livros_emprestados(Livros_Emprestados *list)
 
 void print_livros_emprestados_por_cliente(Cliente *cliente)
 {
+    Cliente *cliente1;
+    Livros_Disponiveis *aux;
+    cliente1 = cliente;
+
     printf("Abaixo estão todos os clientes com os seus respectivos livros alugados.\n\n");
-    for(; cliente != NULL; cliente = cliente->prox)
+    for(; cliente1 != NULL; cliente1 = cliente1->prox)
     {
-        printf("Código do cliente: %i\n", cliente->cd_Identificacao);
-        printf("\tNome do cliente: %s.\n", cliente->Nome);
+        aux = cliente1->Emprestimo;
+        printf("Código do cliente: %i\n", cliente1->cd_Identificacao);
+        printf("\tNome do cliente: %s.\n", cliente1->Nome);
         printf("\tLivros emprestados: ");
-        if(cliente->Emprestimo == NULL)
+        if(aux == NULL)
         {
             printf("O cliente não alugou nenhum livro.\n\n");
         }
         else
         {
-            for(; cliente->Emprestimo != NULL; cliente->Emprestimo = cliente->Emprestimo->prox)
+            for(; aux != NULL; aux = aux->prox)
             {
-                printf("\"%s\"(cod. ,%i) ", cliente->Emprestimo->Titulo, cliente->Emprestimo->cd_registro);
-                if(cliente->Emprestimo->prox != NULL)
+                printf("\"%s\"(cod. %i) ",aux->Titulo, aux->cd_registro);
+                if(aux->prox != NULL)
                 {
-                    if(cliente->Emprestimo->prox->prox != NULL)
+                    if(aux->prox->prox != NULL)
                     {
                         printf(", ");
                     }
