@@ -974,6 +974,67 @@ void print_emprestimo_cliente_nome(Cliente *cliente, char nome[])
     }
 }
 
+void print_visualizacao_livros_disponiveis_codigo(Livros_Disponiveis *list, int codigo)
+{
+    for(; list != NULL; list = list->prox)
+    {
+        if(list->cd_registro == codigo)
+        {
+            printf("Abaixo está as informações do Livro com o código %i:\n\n", codigo);
+            printf("Código do livro: %i\n", list->cd_registro);
+            printf("\tTítulo do livro: %s\n", list->Titulo);
+            printf("\tAssunto do livro: \"%s\"\n", list->Assunto);
+            printf("\tAutor do livro: %s\n\n", list->Autor);
+            break;
+        }
+    }
+}
+
+void print_visualizacao_livros_disponiveis_titulo(Livros_Disponiveis *list, char titulo[])
+{
+    for(; list != NULL; list = list->prox)
+    {
+        if(strcmp(list->Titulo, titulo) == 0)
+        {
+            printf("Abaixo está as informações do Livro com o título \"%s\":\n\n", titulo);
+            printf("Código do livro: %i\n", list->cd_registro);
+            printf("\tTítulo do livro: %s\n", list->Titulo);
+            printf("\tAssunto do livro: \"%s\"\n", list->Assunto);
+            printf("\tAutor do livro: %s\n\n", list->Autor);
+            break;
+        }
+    }
+}
+
+//colocar a função de impressão da visualizar de todos os clientes procurando pelo código.
+void print_clientes_codigo(Cliente *cliente, int codigo)
+{
+    for(; cliente != NULL; cliente = cliente->prox)
+    {
+        if(cliente->cd_Identificacao == codigo)
+        {
+            printf("Abaixo está as informações do cliente que tem o código %i:\n\n", codigo);
+            printf("Código do cliente: %i\n", codigo);
+            printf("\tNome do cliente: %s\n\n", cliente->Nome);
+            break;
+        }
+    }
+}
+
+void print_clientes_nome(Cliente *cliente, char nome[])
+{
+    for(; cliente != NULL; cliente = cliente->prox)
+    {
+        if(strcmp(cliente->Nome, nome) == 0)
+        {
+            printf("Abaixo está as informações do cliente \"%s\":\n\n", nome);
+            printf("Código do cliente: %i\n", cliente->cd_Identificacao);
+            printf("\tNome do cliente: %s\n\n", cliente->Nome);
+            break;
+        }
+    }
+}
+
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -1926,11 +1987,11 @@ int main()
                                 }
                                 else
                                 {
-                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel))
+                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel) == 1)
                                     {
                                         identificador = 0;
                                         system("cls");
-                                        //colocar a função de impressão da Visualização dos livros disponíveis procurando por codigo.
+                                        print_visualizacao_livros_disponiveis_codigo(L_D, cd_aux_Disponivel);
                                         system("pause");
                                         break;
                                     }
@@ -1972,10 +2033,10 @@ int main()
                                                 titulo[i] = tolower(titulo[i]);
                                             }
                                         }
-                                        if(Identificador_livro_existente(L_D, titulo))
+                                        if(Identificador_livro_existente(L_D, titulo) == 1)
                                         {
                                             system("cls");
-                                            //colocar a função de impressão da Visualização dos livros disponíveis procurando por título.
+                                            print_visualizacao_livros_disponiveis_titulo(L_D, titulo);
                                             system("pause");
                                             break;
                                         }
@@ -2007,8 +2068,8 @@ int main()
                             {
                                 system("cls");
                                 printf("Digite o código do cliente ao lado: ");
-                                scanf("%i", &cd_aux_Disponivel);
-                                if(cd_aux_Disponivel < 1)
+                                scanf("%i", &cd_aux_cliente);
+                                if(cd_aux_cliente < 1)
                                 {
                                     printf("OOPS!! não se tem códigos de cliente menor ou igual a 0.\n\n");
                                     system("pause");
@@ -2016,11 +2077,11 @@ int main()
                                 }
                                 else
                                 {
-                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel))
+                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_cliente) == 1)
                                     {
                                         identificador = 0;
                                         system("cls");
-                                        //colocar a função de impressão da visualizar de todos os clientes procurando pelo código.
+                                        print_clientes_codigo(cliente, cd_aux_cliente);
                                         system("pause");
                                         break;
                                     }
@@ -2054,7 +2115,7 @@ int main()
                                     }
                                     else
                                     {
-                                        if(isdigit(nome[0]))
+                                        if(isdigit(nome[0]) == 1)
                                         {
                                             printf("Não se pode ter número no nome do cliente.\n\n");
                                             system("pause");
@@ -2066,7 +2127,7 @@ int main()
                                             identificador = 0;
                                             for(i = 1; i < Tam_Nome; i++)
                                             {
-                                                if(isdigit(nome[i]))
+                                                if(isdigit(nome[i]) == 1)
                                                 {
                                                     identificador++;
                                                     break;
@@ -2082,10 +2143,10 @@ int main()
                                             }
                                             else
                                             {
-                                                if(Identificador_livro_existente(L_D, titulo))
+                                                if(Identificador_Clientes_Existentes(cliente, nome) == 1)
                                                 {
                                                     system("cls");
-                                                    //colocar a função de impressão da Visualizar todos os clientes procurando pelo nome.
+                                                    print_clientes_nome(cliente, nome);
                                                     system("pause");
                                                     break;
                                                 }
