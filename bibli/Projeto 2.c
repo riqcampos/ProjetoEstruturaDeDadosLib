@@ -2177,6 +2177,122 @@ int main()
             system("cls");
             continue;
         }
+        if(opcao == 8)
+        {
+            identificador = 0;
+            do
+            {
+                while(1)
+                {
+                    system("cls");
+                    printf("Escolha uma das opções abaixo.\n");
+                    printf("\t1) Alterar o nome de um cliente.\n");
+                    printf("\t2) Alterar as informações de um livro.\n\n");
+                    printf("Digite a opção desejada ao lado: ");
+                    scanf("%i", &opcao2);
+                    if(opcao2 < 1 || opcao2 > 2)
+                    {
+                        printf("OOOPS!! digitação incorreta!!!\n\n");
+                        system("pause");
+                        system("cls");
+                        printf("Digite qualquer coisa diferente de \"n ou N\" para continuar realizando uma digitação\n");
+                        scanf("%s", &res[0]);
+                        res[0] = toupper(res[0]);
+                        if(res[0] != 'N')
+                        {
+                            continue;
+                        }
+                        identificador++;
+                    }
+                    break;
+                }
+                if(identificador == 0)
+                {
+                    
+                    if(opcao2 == 1)
+                    {
+                        while(1)
+                        {
+                            system("cls");
+                            printf("Digite o código do cliente: ");
+                            scanf("%i", &cd_aux_cliente);
+                            if(cd_aux_cliente <= 0)
+                            {
+                                printf("OOOPS!! O código do cliente tem de ser um número maior ou igual a 0.\n\n");
+                                system("pause");
+                                system("cls");
+                            }
+                            else
+                            {
+                                if(Identificador_Clientes_Existentes_codigo(cliente, cd_aux_cliente) == 1)
+                                {
+                                    while(1)
+                                    {
+                                        system("cls");
+                                        printf("Digite como deseja renomear o cliente: ");
+                                        fflush(stdin);
+                                        gets(nome);
+                                        printf("Se deseja digitar novamente, digite qualquer coisa diferente de \"n ou N\": ");
+                                        scanf("%s", &res[0]);
+                                        res[0] = toupper(res[0]);
+                                        if(res[0] != 'N')
+                                        {
+                                            continue;
+                                        }
+                                        if(titulo[0] == ' ')
+                                        {
+                                            printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
+                                            system("pause");
+                                            system("cls");
+                                        }
+                                        else
+                                        {
+                                            if(isdigit(nome))
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    printf("Não existe cliente cadastrado com o código \"%i\"\n\n", cd_aux_cliente);
+                                    system("pause");
+                                    system("cls");
+                                }
+                            }
+                            printf("Digite qualquer coisa diferente de \"n ou N\" para realizar uma nova digitação: ");
+                            scanf("%s", &res[0]);
+                            res[0] = toupper(res[0]);
+                            if(res[0] == 'N')
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    identificador = 0;
+                }
+                do
+                {
+                    system("cls");
+                    printf("Escolha uma das opções abaixo.\n");
+                    printf("\t1) Realizar outra alteração de cadastro.\n");
+                    printf("\t2) Voltar ao menu principal.\n\n");
+                    printf("Digite uma das opção desejada ao lado: ");
+                    scanf("%i", &opcao2);
+                    if(opcao2 < 1 || opcao2 > 2)
+                    {
+                        printf("OOOPS!! digitação incorreta, por favor escolha a opção 1 ou 2.\n\n");
+                        system("pause");
+                    }
+                }while(opcao2 < 1 || opcao2 > 2);
+            } while(opcao2 != 2);
+            system("cls");
+        }
         if(opcao == 9)
         {
             system("cls");
