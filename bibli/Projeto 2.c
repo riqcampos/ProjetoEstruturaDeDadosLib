@@ -1030,7 +1030,8 @@ int main()
         printf("\t5) Visualização de livros emprestados.\n");
         printf("\t6) Visualização de livros disponíveis na Biblioteca.\n");
         printf("\t7) Visualização de lista de clientes.\n");
-        printf("\t8) Sair da Central.\n\n");
+        printf("\t8) Editar cadastro de cliente ou Livros.\n");
+        printf("\t9) Sair da Central.\n\n");
         printf("Digite o número da opcão desejada: ");
         scanf("%i", &opcao);
         identificador = 0;
@@ -2176,7 +2177,7 @@ int main()
             system("cls");
             continue;
         }
-        if(opcao == 8)
+        if(opcao == 9)
         {
             system("cls");
             break;
