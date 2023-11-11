@@ -730,7 +730,7 @@ void print_livros_emprestados_por_cliente(Cliente *cliente)
         {
             for(; aux != NULL; aux = aux->prox)
             {
-                printf("\"%s\"(cod. %i) ",aux->Titulo, aux->cd_registro);
+                printf("\"%s\"(cod. %i)",aux->Titulo, aux->cd_registro);
                 if(aux->prox != NULL)
                 {
                     if(aux->prox->prox != NULL)
@@ -850,7 +850,7 @@ void print_emprestimo_cliente_codigo(Cliente *cliente, int codigo)
         {
             if(cliente1->cd_Identificacao == codigo)
             {
-                aux = cliente->Emprestimo;
+                aux = cliente1->Emprestimo;
                 printf("Nome do cliente: %s\n", cliente1->Nome);
                 printf("Código do cliente: %i\n", cliente1->cd_Identificacao);
                 printf("Livros alugados pelo cliente: ");
@@ -864,7 +864,7 @@ void print_emprestimo_cliente_codigo(Cliente *cliente, int codigo)
                     for(; aux != NULL; aux = aux->prox)
                     {
                         printf("\t-Código do livro: %i\n", aux->cd_registro);
-                        printf("\t-Título do livro: %s\n", aux->Titulo);
+                        printf("\t-Título do livro: %s\n\n", aux->Titulo);
                     }
                 }
             }
@@ -888,7 +888,7 @@ void print_emprestimo_cliente_nome(Cliente *cliente, char nome[])
         {
             if(strcmp(nome, cliente1->Nome) == 0)
             {
-                aux = cliente->Emprestimo;
+                aux = cliente1->Emprestimo;
                 printf("Nome do cliente: %s\n", cliente1->Nome);
                 printf("Código do cliente: %i\n", cliente1->cd_Identificacao);
                 printf("Livros alugados pelo cliente: ");
@@ -902,7 +902,7 @@ void print_emprestimo_cliente_nome(Cliente *cliente, char nome[])
                     for(; aux != NULL; aux = aux->prox)
                     {
                         printf("\t-Código do livro: %i\n", aux->cd_registro);
-                        printf("\t-Título do livro: %s\n", aux->Titulo);
+                        printf("\t-Título do livro: %s\n\n", aux->Titulo);
                     }
                 }
             }
