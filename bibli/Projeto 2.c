@@ -163,37 +163,7 @@ Cliente* Ordenamento_Cliente (Cliente *cliente)
         do
         {
             identificador = 0;
-            for(; cliente != NULL; cliente = cliente->prox)
-            {
-                if(aux1 != NULL)
-                {
-                    if(strcmp(cliente->Nome, aux1->Nome) <= 0)
-                    {
-                        
-                    }
-                }
-                else
-                {
-                    if(strcmp(cliente->prox->Nome, cliente->Nome) <= 0)
-                    {
-                        identificador++;
-                        cliente1 = Aux_Cliente(cliente1, cliente->prox->cd_Identificacao, cliente->prox->Nome);
-                        aux2 = cliente->prox->Emprestimo;
-                        for(; aux2 != NULL; aux2 = aux2->prox)
-                        {
-                            cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
-                        }
-                        aux1 = Aux_Cliente(aux1, cliente->cd_Identificacao, cliente->Nome);
-                        aux2 = cliente->Emprestimo;
-                        for(; aux2 != NULL; aux2 = aux2->prox)
-                        {
-                            aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
-                        }
-                        cliente = cliente->prox;
-                        cliente = cliente->prox;
-                    }
-                }                
-            }
+            
         } while (identificador != 0);
         
     }
