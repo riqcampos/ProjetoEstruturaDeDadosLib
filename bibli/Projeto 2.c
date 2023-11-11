@@ -1676,16 +1676,16 @@ int main()
                     printf("\t1) Realizar outro empréstimo de livro.\n");
                     printf("\t2) Voltar ao menu principal.\n\n");
                     printf("Digite um número da opção desejada ao lado: ");
-                    scanf("%i", &opcao);
+                    scanf("%i", &opcao2);
 
-                    if(opcao == 1 || opcao == 2)
+                    if(opcao2 == 1 || opcao2 == 2)
                     {
                         break;
                     }
                     printf("OOOPS!! O número digitado não condiz com o solicitado.\n\n");
                     system("pause");
                 }
-            } while(opcao == 1);
+            } while(opcao2 == 1);
             system("cls");
             continue;
         }
