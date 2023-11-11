@@ -2264,7 +2264,7 @@ int main()
                                                     }
                                                     nome[i] = tolower(nome[i]);
                                                 }
-                                                if(identificador != 1)
+                                                if(identificador != 0)
                                                 {
                                                     identificador = 0;
                                                     printf("OOOPS!!! não se pode haver digitação de número no nome do cliente.\n\n");
@@ -2273,11 +2273,25 @@ int main()
                                                 }
                                                 else
                                                 {
-                                                    
+                                                    system("cls");
+                                                    printf("A alteração de ");
+                                                    //Criar e colocar função que altera o nome do cliente.
+                                                    printf(" para \"%s\" foi realizada com sucesso!!!\n\n", nome);
+                                                    system("pause");
+                                                    system("cls");
+                                                    break;
                                                 }
                                             }
                                         }
+                                        printf("Digite qualquer coisa diferente de \"n ou N\" para tentar realizar uma nova digitação: ");
+                                        scanf("%s", &res[0]);
+                                        res[0] = toupper(res[0]);
+                                        if(res[0] == 'N')
+                                        {
+                                            break;
+                                        }
                                     }
+                                    break;
                                 }
                                 else
                                 {
@@ -2320,6 +2334,7 @@ int main()
                 }while(opcao2 < 1 || opcao2 > 2);
             } while(opcao2 != 2);
             system("cls");
+            continue;
         }
         if(opcao == 9)
         {
