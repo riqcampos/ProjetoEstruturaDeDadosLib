@@ -2208,7 +2208,6 @@ int main()
                 }
                 if(identificador == 0)
                 {
-                    
                     if(opcao2 == 1)
                     {
                         while(1)
@@ -2232,7 +2231,7 @@ int main()
                                         printf("Digite como deseja renomear o cliente: ");
                                         fflush(stdin);
                                         gets(nome);
-                                        printf("Se deseja digitar novamente, digite qualquer coisa diferente de \"n ou N\": ");
+                                        printf("Se deseja digitar novamente, tecle qualquer botão diferente de \"n ou N\": ");
                                         scanf("%s", &res[0]);
                                         res[0] = toupper(res[0]);
                                         if(res[0] != 'N')
@@ -2247,7 +2246,36 @@ int main()
                                         }
                                         else
                                         {
-                                            if(isdigit(nome))
+                                            if(isdigit(nome[0]) == 1)
+                                            {
+                                                printf("OOOPS!!! não se pode haver digitação de número no nome do cliente.\n\n");
+                                                system("pause");
+                                                system("cls");
+                                            }
+                                            else
+                                            {
+                                                nome[0] = toupper(nome[0]);
+                                                for(i = 1; nome[i] < Tam_Nome; i++)
+                                                {
+                                                    if(isdigit(nome[i]) == 1)
+                                                    {
+                                                        identificador++;
+                                                        break;
+                                                    }
+                                                    nome[i] = tolower(nome[i]);
+                                                }
+                                                if(identificador != 1)
+                                                {
+                                                    identificador = 0;
+                                                    printf("OOOPS!!! não se pode haver digitação de número no nome do cliente.\n\n");
+                                                    system("pause");
+                                                    system("cls");
+                                                }
+                                                else
+                                                {
+                                                    
+                                                }
+                                            }
                                         }
                                     }
                                 }
