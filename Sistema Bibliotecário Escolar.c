@@ -1906,19 +1906,194 @@ int main()
                                 scanf("%i", &opcao2);
                                 if(opcao2 == 1)
                                 {
-
+                                    //Edição do titulo de um livro.
+                                    while(1)
+                                    {
+                                        system("cls");
+                                        printf("Digite o novo titulo do livro: ");
+                                        fflush(stdin);
+                                        gets(titulo);
+                                        if(titulo[0] == ' ')
+                                        {
+                                            printf("OOOPS!!! há um espaço em branco no inicio do titulo.\n\n");
+                                            system("pause");
+                                            system("cls");
+                                        }
+                                        else
+                                        {
+                                            titulo[0] = toupper(titulo[0]);
+                                            for(i = 1; titulo[i] < Tam_Nome; i++)
+                                            {
+                                                titulo[i] = tolower(titulo[i]);
+                                            }
+                                            break;
+                                        }
+                                        printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente um titulo para o livro: ");
+                                        scanf("%s", &res[0]);
+                                        res[0] = toupper(res[0]);
+                                        if(res[0] == 'N')
+                                        {
+                                            identificador++;
+                                            break;
+                                        }
+                                    }
+                                    if(identificador == 0)
+                                    {
+                                        system("cls");
+                                        if(opcao == 1)
+                                        {
+                                            //colocar a função de edição do titulo na lista de livros disponiveis
+                                        }
+                                        else
+                                        {
+                                            //colocar a função de edição do titulo na lista de livros emprestados e na lista de livros disponiveis dentro da lista de clientes
+                                        }
+                                        printf("O titulo do livro foi alterado com sucesso!!\n\n");
+                                        system("pause");
+                                        system("cls");
+                                    }   
+                                    else
+                                    {
+                                        identificador = 0;
+                                    }
                                 }
                                 else
                                 {
                                     if(opcao2 == 2)
                                     {
-
+                                        //Edição do assunto de um livro
+                                        while(1)
+                                        {
+                                            system("cls");
+                                            printf("Digite o novo assunto do livro: ");
+                                            fflush(stdin);
+                                            gets(assunto);
+                                            if(assunto[0] == ' ')
+                                            {
+                                                printf("OOOPS!!! há um espaço em branco no inicio do assunto.\n\n");
+                                                system("pause");
+                                                system("cls");
+                                            }
+                                            else
+                                            {
+                                                assunto[0] = toupper(assunto[0]);
+                                                for(i = 1; assunto[i] < Tam_Nome; i++)
+                                                {
+                                                    assunto[i] = tolower(assunto[i]);
+                                                }
+                                                break;
+                                            }
+                                            printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente o assunto do livro: ");
+                                            scanf("%s", &res[0]);
+                                            res[0] = toupper(res[0]);
+                                            if(res[0] == 'N')
+                                            {
+                                                identificador++;
+                                                break;
+                                            }
+                                        }
+                                        if(identificador == 0)
+                                        {
+                                            system("cls");
+                                            if(opcao == 1)
+                                            {
+                                                //colocar a função de edição do assunto na lista de livros disponiveis
+                                            }
+                                            else
+                                            {
+                                                //colocar a função de edição do assunto na lista de livros emprestados e na lista de livros disponiveis dentro da lista de clientes
+                                            }
+                                            printf("O assunto do livro foi alterado com sucesso!!\n\n");
+                                            system("pause");
+                                            system("cls");
+                                        }   
+                                        else
+                                        {
+                                            identificador = 0;
+                                        }
                                     }
                                     else
                                     {
                                         if(opcao2 == 3)
                                         {
-
+                                            //Edição do autor de um livro
+                                            while(1)
+                                            {
+                                                system("cls");
+                                                printf("Digite o novo nome do autor do livro: ");
+                                                fflush(stdin);
+                                                gets(autor);
+                                                if(autor[0] == ' ')
+                                                {
+                                                    printf("OOOPS!!! há um espaço em branco no inicio do nome do autor.\n\n");
+                                                    system("pause");
+                                                    system("cls");
+                                                }
+                                                else
+                                                {
+                                                    if(isdigit(autor[0]) == 1)
+                                                    {
+                                                        printf("Não se pode ter digitação de número no nome do autor.\n\n");
+                                                        system("pause");
+                                                        system("cls");
+                                                    }
+                                                    else
+                                                    {
+                                                        identificador = 0;
+                                                        autor[0] = toupper(autor[0]);
+                                                        for(i = 1; autor[i] < Tam_Nome; i++)
+                                                        {
+                                                            if(isdigit(autor[i]) == 0)
+                                                            {
+                                                                autor[i] = tolower(autor[i]);
+                                                            }
+                                                            else
+                                                            {
+                                                                identificador++;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if(identificador == 0)
+                                                        {
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            identificador = 0;
+                                                            printf("Não se pode ter número na digitação do nome do autor.\n\n");
+                                                            system("pause");
+                                                            system("cls");
+                                                        }
+                                                    }
+                                                }
+                                                printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente um o nome do autor: ");
+                                                scanf("%s", &res[0]);
+                                                res[0] = toupper(res[0]);
+                                                if(res[0] == 'N')
+                                                {
+                                                    identificador++;
+                                                    break;
+                                                }
+                                            }
+                                            if(identificador == 0)
+                                            {
+                                                system("cls");
+                                                if(opcao == 1)
+                                                {
+                                                    //colocar a função de edição do nome do autor na lista de livros disponiveis
+                                                }
+                                                else
+                                                {
+                                                    //colocar a função de edição do nome do autor na lista de livros emprestados e n alista de livros disponiveis dentro da lista de clientes
+                                                }
+                                                printf("O nome do autor foi alterado com sucesso!!\n\n");
+                                                system("pause");
+                                                system("cls");
+                                            }   
+                                            else
+                                            {
+                                                identificador = 0;
+                                            }
                                         }
                                         else
                                         {
