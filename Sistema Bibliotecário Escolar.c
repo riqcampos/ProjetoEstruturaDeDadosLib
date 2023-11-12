@@ -530,6 +530,138 @@ void print_Livro_Emprestado_titulo(Livros_Emprestados *L_Emprestado, Livros_Disp
     }
 }
 
+//Função que altera o titulo do livro que esta na lista de emprestimo e cliente.
+void Editar_titulo_livros_emprestados_e_cliente(Livros_Emprestados **L_Emprestado, Cliente **cliente, int codigo, char titulo[])
+{
+    Livros_Disponiveis *aux;
+    Livros_Emprestados *L_Emprestado1, *aux2;
+    Cliente *cliente1, *aux1;
+    cliente1 = *cliente;
+    L_Emprestado1 = *L_Emprestado;
+    aux = NULL;
+    aux1 = NULL;
+    aux2 = NULL;
+
+    for(; L_Emprestado1 != NULL; L_Emprestado1 = L_Emprestado1->prox)
+    {
+        if(L_Emprestado1->Cd_Identificacao_Livro_Emprestado == codigo)
+        {
+            aux2 = Inputar_Emprestados_Ordenadamente(aux2, L_Emprestado1->Cd_Identificacao_Cliente, L_Emprestado1->Cd_Identificacao_Livro_Emprestado, titulo, L_Emprestado1->Assunto, L_Emprestado1->Autor);
+        }
+        else
+        {
+            aux2 = Inputar_Emprestados_Ordenadamente(aux2, L_Emprestado1->Cd_Identificacao_Cliente, L_Emprestado1->Cd_Identificacao_Livro_Emprestado, L_Emprestado1->Titulo, L_Emprestado1->Assunto, L_Emprestado1->Autor);
+        }
+    }
+    for(; cliente1 != NULL; cliente1 = cliente1->prox)
+    {
+        aux1 = Aux_Cliente(aux1, cliente1->cd_Identificacao, cliente1->Nome );
+        aux = cliente1->Emprestimo;
+        for(; aux != NULL; aux = aux->prox)
+        {
+            if(aux->cd_registro == codigo)
+            {
+                aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux->cd_registro, titulo, aux->Assunto, aux->Autor);
+            }
+            else
+            {
+                aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux->cd_registro, aux->Titulo, aux->Assunto, aux->Autor);
+            }
+        }
+    }
+    aux1 = Ordenamento_Cliente(aux1);
+    *L_Emprestado = aux2;
+    *cliente = aux1;
+}
+
+//Função que altera o assunto do livro que esta na lista de emprestimo e cliente.
+void Editar_assunto_livros_emprestados_e_cliente(Livros_Emprestados **L_Emprestado, Cliente **cliente, int codigo, char assunto[])
+{
+    Livros_Disponiveis *aux;
+    Livros_Emprestados *L_Emprestado1, *aux2;
+    Cliente *cliente1, *aux1;
+    cliente1 = *cliente;
+    L_Emprestado1 = *L_Emprestado;
+    aux = NULL;
+    aux1 = NULL;
+    aux2 = NULL;
+
+    for(; L_Emprestado1 != NULL; L_Emprestado1 = L_Emprestado1->prox)
+    {
+        if(L_Emprestado1->Cd_Identificacao_Livro_Emprestado == codigo)
+        {
+            aux2 = Inputar_Emprestados_Ordenadamente(aux2, L_Emprestado1->Cd_Identificacao_Cliente, L_Emprestado1->Cd_Identificacao_Livro_Emprestado, L_Emprestado1->Titulo, assunto, L_Emprestado1->Autor);
+        }
+        else
+        {
+            aux2 = Inputar_Emprestados_Ordenadamente(aux2, L_Emprestado1->Cd_Identificacao_Cliente, L_Emprestado1->Cd_Identificacao_Livro_Emprestado, L_Emprestado1->Titulo, L_Emprestado1->Assunto, L_Emprestado1->Autor);
+        }
+    }
+    for(; cliente1 != NULL; cliente1 = cliente1->prox)
+    {
+        aux1 = Aux_Cliente(aux1, cliente1->cd_Identificacao, cliente1->Nome );
+        aux = cliente1->Emprestimo;
+        for(; aux != NULL; aux = aux->prox)
+        {
+            if(aux->cd_registro == codigo)
+            {
+                aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux->cd_registro, aux->Titulo, assunto, aux->Autor);
+            }
+            else
+            {
+                aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux->cd_registro, aux->Titulo, aux->Assunto, aux->Autor);
+            }
+        }
+    }
+    aux1 = Ordenamento_Cliente(aux1);
+    *L_Emprestado = aux2;
+    *cliente = aux1;
+}
+
+//Função que altera o autor do livro que esta na lista de emprestimo e cliente.
+void Editar_autor_livros_emprestados_e_cliente(Livros_Emprestados **L_Emprestado, Cliente **cliente, int codigo, char autor[])
+{
+    Livros_Disponiveis *aux;
+    Livros_Emprestados *L_Emprestado1, *aux2;
+    Cliente *cliente1, *aux1;
+    cliente1 = *cliente;
+    L_Emprestado1 = *L_Emprestado;
+    aux = NULL;
+    aux1 = NULL;
+    aux2 = NULL;
+
+    for(; L_Emprestado1 != NULL; L_Emprestado1 = L_Emprestado1->prox)
+    {
+        if(L_Emprestado1->Cd_Identificacao_Livro_Emprestado == codigo)
+        {
+            aux2 = Inputar_Emprestados_Ordenadamente(aux2, L_Emprestado1->Cd_Identificacao_Cliente, L_Emprestado1->Cd_Identificacao_Livro_Emprestado, L_Emprestado1->Titulo, L_Emprestado1->Assunto, autor);
+        }
+        else
+        {
+            aux2 = Inputar_Emprestados_Ordenadamente(aux2, L_Emprestado1->Cd_Identificacao_Cliente, L_Emprestado1->Cd_Identificacao_Livro_Emprestado, L_Emprestado1->Titulo, L_Emprestado1->Assunto, L_Emprestado1->Autor);
+        }
+    }
+    for(; cliente1 != NULL; cliente1 = cliente1->prox)
+    {
+        aux1 = Aux_Cliente(aux1, cliente1->cd_Identificacao, cliente1->Nome );
+        aux = cliente1->Emprestimo;
+        for(; aux != NULL; aux = aux->prox)
+        {
+            if(aux->cd_registro == codigo)
+            {
+                aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux->cd_registro, aux->Titulo, aux->Assunto, autor);
+            }
+            else
+            {
+                aux1->Emprestimo = Inputar_Disponivel_Ordenadamente(aux1->Emprestimo, aux->cd_registro, aux->Titulo, aux->Assunto, aux->Autor);
+            }
+        }
+    }
+    aux1 = Ordenamento_Cliente(aux1);
+    *L_Emprestado = aux2;
+    *cliente = aux1;
+}
+
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -1891,8 +2023,6 @@ int main()
                                 break;
                             }
                         }
-                        //colocar a função que altera o nome do livro na lista de livros disponiveis
-                        //colocar a função que altera o nome do livro na lista de livros emprestados, e na lista de clientes.
                         if(identificador == 0)
                         {
                             while(1)
@@ -1943,10 +2073,12 @@ int main()
                                         if(opcao == 1)
                                         {
                                             //colocar a função de edição do titulo na lista de livros disponiveis
+                                            L_D = Edicao_titulo_livro_disponivel(L_D, cd_aux_Disponivel, titulo);
                                         }
                                         else
                                         {
                                             //colocar a função de edição do titulo na lista de livros emprestados e na lista de livros disponiveis dentro da lista de clientes
+                                            Editar_titulo_livros_emprestados_e_cliente(&Livro_emprestado, &cliente, cd_aux_Disponivel, titulo);
                                         }
                                         printf("O titulo do livro foi alterado com sucesso!!\n\n");
                                         system("pause");
@@ -1998,10 +2130,12 @@ int main()
                                             if(opcao == 1)
                                             {
                                                 //colocar a função de edição do assunto na lista de livros disponiveis
+                                                L_D = Edicao_assunto_livro_disponivel(L_D, cd_aux_Disponivel, assunto);
                                             }
                                             else
                                             {
                                                 //colocar a função de edição do assunto na lista de livros emprestados e na lista de livros disponiveis dentro da lista de clientes
+                                                Editar_assunto_livros_emprestados_e_cliente(&Livro_emprestado, &cliente, cd_aux_Disponivel, assunto);
                                             }
                                             printf("O assunto do livro foi alterado com sucesso!!\n\n");
                                             system("pause");
@@ -2081,10 +2215,12 @@ int main()
                                                 if(opcao == 1)
                                                 {
                                                     //colocar a função de edição do nome do autor na lista de livros disponiveis
+                                                    L_D = Edicao_autor_livro_disponivel(L_D, cd_aux_Disponivel, autor);
                                                 }
                                                 else
                                                 {
                                                     //colocar a função de edição do nome do autor na lista de livros emprestados e n alista de livros disponiveis dentro da lista de clientes
+                                                    Editar_autor_livros_emprestados_e_cliente(&Livro_emprestado, &cliente, cd_aux_Disponivel, autor);
                                                 }
                                                 printf("O nome do autor foi alterado com sucesso!!\n\n");
                                                 system("pause");
@@ -2100,15 +2236,15 @@ int main()
                                             printf("OOOPS!! O número digitado não condiz com a solicitação.\n\n");
                                             system("pause");
                                             system("cls");
+                                            printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente uma opção: ");
+                                            scanf("%s", &res[0]);
+                                            res[0] = toupper(res[0]);
+                                            if(res[0] == 'N')
+                                            {
+                                                break;
+                                            }
                                         }
                                     }
-                                }
-                                printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente uma opção: ");
-                                scanf("%s", &res[0]);
-                                res[0] = toupper(res[0]);
-                                if(res[0] == 'N')
-                                {
-                                    break;
                                 }
                             }
                         }
@@ -2116,7 +2252,6 @@ int main()
                         {
                             identificador = 0;
                         }
-                        
                     }
                 }
                 else

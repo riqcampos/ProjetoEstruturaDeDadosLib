@@ -147,5 +147,62 @@ void print_visualizacao_livros_disponiveis_titulo(Livros_Disponiveis *list, char
     }
 }
 
+//Função que altera o titulo do livro.
+Livros_Disponiveis* Edicao_titulo_livro_disponivel(Livros_Disponiveis *L_Disponiveis, int codigo, char titulo[])
+{
+    Livros_Disponiveis *aux;
+    aux = NULL;
+    for(; L_Disponiveis != NULL; L_Disponiveis = L_Disponiveis->prox)
+    {
+        if(L_Disponiveis->cd_registro == codigo)
+        {
+            aux = Inputar_Disponivel_Ordenadamente(aux, L_Disponiveis->cd_registro, titulo, L_Disponiveis->Assunto, L_Disponiveis->Autor);
+        }
+        else
+        {
+            aux = Inputar_Disponivel_Ordenadamente(aux, L_Disponiveis->cd_registro, L_Disponiveis->Titulo, L_Disponiveis->Assunto, L_Disponiveis->Autor);
+        }
+    }
+    return aux;
+}
+
+//colocar a função de edição do assunto na lista de livros disponiveis
+Livros_Disponiveis* Edicao_assunto_livro_disponivel(Livros_Disponiveis *L_Disponiveis, int codigo, char assunto[])
+{
+    Livros_Disponiveis *aux;
+    aux = NULL;
+    for(; L_Disponiveis != NULL; L_Disponiveis = L_Disponiveis->prox)
+    {
+        if(L_Disponiveis->cd_registro == codigo)
+        {
+            aux = Inputar_Disponivel_Ordenadamente(aux, L_Disponiveis->cd_registro, L_Disponiveis->Titulo, assunto, L_Disponiveis->Autor);
+        }
+        else
+        {
+            aux = Inputar_Disponivel_Ordenadamente(aux, L_Disponiveis->cd_registro, L_Disponiveis->Titulo, L_Disponiveis->Assunto, L_Disponiveis->Autor);
+        }
+    }
+    return aux;
+}
+
+//colocar a função de edição do nome do autor na lista de livros disponiveis
+Livros_Disponiveis* Edicao_autor_livro_disponivel(Livros_Disponiveis *L_Disponiveis, int codigo, char autor[])
+{
+    Livros_Disponiveis *aux;
+    aux = NULL;
+    for(; L_Disponiveis != NULL; L_Disponiveis = L_Disponiveis->prox)
+    {
+        if(L_Disponiveis->cd_registro == codigo)
+        {
+            aux = Inputar_Disponivel_Ordenadamente(aux, L_Disponiveis->cd_registro, L_Disponiveis->Titulo, L_Disponiveis->Assunto, autor);
+        }
+        else
+        {
+            aux = Inputar_Disponivel_Ordenadamente(aux, L_Disponiveis->cd_registro, L_Disponiveis->Titulo, L_Disponiveis->Assunto, L_Disponiveis->Autor);
+        }
+    }
+    return aux;
+}
+
 //finalização da biblioteca
 #endif
