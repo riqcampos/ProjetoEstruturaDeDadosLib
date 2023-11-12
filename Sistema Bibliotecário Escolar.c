@@ -1811,9 +1811,8 @@ int main()
                                                 else
                                                 {
                                                     system("cls");
-                                                    printf("A alteração de ");
-                                                    //Criar e colocar função que altera o nome do cliente.
-                                                    printf(" para \"%s\" foi realizada com sucesso!!!\n\n", nome);
+                                                    cliente = Editar_cliente(cliente, cd_aux_cliente, nome);
+                                                    printf("O nome foi alterado com sucesso!!!\n\n");
                                                     system("pause");
                                                     system("cls");
                                                     break;

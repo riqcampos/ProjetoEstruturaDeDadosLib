@@ -320,5 +320,33 @@ void print_clientes_nome(Cliente *cliente, char nome[])
     }
 }
 
+//A funçaõ abaixo serve para editar o nome de um cliente, dado o código de identificação do mesmo
+Cliente* Editar_cliente(Cliente *cliente, int codigo, char nome[])
+{
+    Cliente *cliente1;
+    Livros_Disponiveis *aux;
+    aux = NULL;
+    cliente1 = NULL;
+
+    for(; cliente != NULL; cliente = cliente->prox)
+    {
+        if(cliente->cd_Identificacao == codigo)
+        {
+            cliente1 = Aux_Cliente(cliente1, codigo, nome);
+        }
+        else
+        {
+            cliente1 = Aux_Cliente(cliente1, cliente->cd_Identificacao, cliente->Nome);
+        }
+        aux = cliente->Emprestimo;
+        for(; aux != NULL; aux = aux->prox)
+        {
+            cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux->cd_registro, aux->Titulo, aux->Assunto, aux->Autor);
+        }
+    }
+    cliente1 = Ordenamento_Cliente(cliente1);
+    return cliente1;
+}
+
 //finalização da biblioteca
 #endif
