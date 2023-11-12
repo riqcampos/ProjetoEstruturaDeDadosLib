@@ -669,6 +669,7 @@ int main()
                     system("cls");
                     printf("O livro \"%s\" do autor(a) \"%s\" foi cadastrado com sucesso!!\n", titulo, autor);
                     printf("O código do livro é: %i\n\n", Codigo_Livro);
+                    printf("ATENÇÃO: Para realizar uma alteração de qualquer informação do livro, será solicitado o código do mesmo!!\n\n");
                     system("pause");
                 }
                 identificador = 0;
@@ -751,7 +752,8 @@ int main()
                 cliente = Ordenamento_Cliente(cliente);
                 system("cls");
                 printf("O cliente \"%s\" foi cadastrado com sucesso!!\n", nome);
-                printf("O código do cliente é: %i\n\n", Codigo_Cliente);
+                printf("O código do cliente é: %i\n", Codigo_Cliente);
+                printf("\nATENÇÃO: Para realizar uma alteração do nome do cliente, será necessário saber o código do mesmo.\n\n");
                 system("pause");
                 while(1)
                 {
@@ -1847,7 +1849,46 @@ int main()
                     }
                     else
                     {
-
+                        while(1)
+                        {
+                            system("cls");
+                            printf("Digite o código do livro ao lado: ");
+                            scanf("%i", &cd_aux_Disponivel);
+                            if(cd_aux_Disponivel < 1)
+                            {
+                                printf("Não existe nenhum livro cadastrado que tenha um código menor ou igual a 0.\n\n");
+                                system("pause");
+                                system("cls");
+                            }
+                            else
+                            {
+                                if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel) == 1)
+                                {
+                                    //colocar a função que altera o nome do livro na lista de livros disponiveis
+                                }
+                                else
+                                {
+                                    if(Identificador_livro_Emprestado_existente_por_codigo(Livro_emprestado, cd_aux_Disponivel) == 1)
+                                    {
+                                        //colocar a função que altera o nome do livro na lista de livros emprestados, e na lista de clientes.
+                                    }
+                                    else
+                                    {
+                                        printf("O livro com o código \"%i\" não consta no sistema.\n\n", cd_aux_Disponivel);
+                                        system("pause");
+                                        system("cls");
+                                    }
+                                }
+                            }
+                            printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente um código: ");
+                            scanf("%s", &res[0]);
+                            res[0] = toupper(res[0]);
+                            if(res[0] == 'N')
+                            {
+                                break;
+                            }
+                        }
+                        
                     }
                 }
                 else
