@@ -320,4 +320,5 @@ void print_clientes_nome(Cliente *cliente, char nome[])
     }
 }
 
+//finalização da biblioteca
 #endif

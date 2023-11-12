@@ -147,4 +147,5 @@ void print_visualizacao_livros_disponiveis_titulo(Livros_Disponiveis *list, char
     }
 }
 
+//finalização da biblioteca
 #endif

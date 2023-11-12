@@ -444,6 +444,7 @@ void devolucao_nome_cliente_e_livro(Livros_Disponiveis **L_Disponiveis, Livros_E
     *L_Emprestados = aux1;
 }
 
+//A função abaixo realiza a visualização mais detalhada dos livros Emprestado pelo codigo. Caso o cliente não tenha alugado o livro, a função também avisará do mesmo
 void print_Livro_Emprestado_codigo(Livros_Emprestados *L_Emprestado, Livros_Disponiveis *L_Disponivel, int codigo)
 {
     int identificador;
@@ -486,6 +487,7 @@ void print_Livro_Emprestado_codigo(Livros_Emprestados *L_Emprestado, Livros_Disp
     }
 }
 
+//A função abaixo realiza a visualização mais detalhada dos livros Emprestado pelo titulo. Caso o cliente não tenha alugado o livro, a função também avisará do mesmo
 void print_Livro_Emprestado_titulo(Livros_Emprestados *L_Emprestado, Livros_Disponiveis *L_Disponivel, char titulo[])
 {
     int identificador;

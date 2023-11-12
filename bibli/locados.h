@@ -112,4 +112,5 @@ void print_livros_emprestados(Livros_Emprestados *list)
     system("pause");
 }
 
+//finalização da biblioteca
 #endif
