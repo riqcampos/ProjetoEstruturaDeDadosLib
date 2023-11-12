@@ -1864,19 +1864,21 @@ int main()
                             {
                                 if(Identificador_livro_existente_por_codigo(L_D, cd_aux_Disponivel) == 1)
                                 {
-                                    //colocar a função que altera o nome do livro na lista de livros disponiveis
+                                    opcao = 1;
+                                    break;
                                 }
                                 else
                                 {
                                     if(Identificador_livro_Emprestado_existente_por_codigo(Livro_emprestado, cd_aux_Disponivel) == 1)
                                     {
-                                        //colocar a função que altera o nome do livro na lista de livros emprestados, e na lista de clientes.
+                                        opcao = 2;
+                                        break;
                                     }
                                     else
                                     {
-                                        printf("O livro com o código \"%i\" não consta no sistema.\n\n", cd_aux_Disponivel);
-                                        system("pause");
-                                        system("cls");
+                                    printf("O livro com o código \"%i\" não consta no sistema.\n\n", cd_aux_Disponivel);
+                                    system("pause");
+                                    system("cls");
                                     }
                                 }
                             }
@@ -1885,8 +1887,59 @@ int main()
                             res[0] = toupper(res[0]);
                             if(res[0] == 'N')
                             {
+                                identificador++;
                                 break;
                             }
+                        }
+                        //colocar a função que altera o nome do livro na lista de livros disponiveis
+                        //colocar a função que altera o nome do livro na lista de livros emprestados, e na lista de clientes.
+                        if(identificador == 0)
+                        {
+                            while(1)
+                            {
+                                system("cls");
+                                printf("Escolha uma das opções abaixo.\n");
+                                printf("\t1) Alterar título.\n");
+                                printf("\t2) Alterar assunto.\n");
+                                printf("\t3) Alterar autor.\n\n");
+                                printf("Digite o número da opção que deseja realizar a edição de informação: ");
+                                scanf("%i", &opcao2);
+                                if(opcao2 == 1)
+                                {
+
+                                }
+                                else
+                                {
+                                    if(opcao2 == 2)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        if(opcao2 == 3)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            printf("OOOPS!! O número digitado não condiz com a solicitação.\n\n");
+                                            system("pause");
+                                            system("cls");
+                                        }
+                                    }
+                                }
+                                printf("Digite qualquer coisa diferente de \"n ou N\" para digitar novamente uma opção: ");
+                                scanf("%s", &res[0]);
+                                res[0] = toupper(res[0]);
+                                if(res[0] == 'N')
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            identificador = 0;
                         }
                         
                     }

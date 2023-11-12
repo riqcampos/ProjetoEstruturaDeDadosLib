@@ -6,4 +6,4 @@ Integrantes do projeto
     César Henrique Rodrigues de Campos
     Gustavo Dorio dos Santos
     Paulo Emanuel
-    Pedro Vyctor de Almeida
+    Pedro Vyctor Carvalho de Almeida
