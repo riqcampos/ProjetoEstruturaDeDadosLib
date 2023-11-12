@@ -153,24 +153,98 @@ Cliente* Aux_Cliente(Cliente *list, int Cd_Cliente, char nome[])
 Cliente* Ordenamento_Cliente (Cliente *cliente)
 {
     Cliente *cliente1, *aux1;
-    Livros_Disponiveis *aux2;
+    Livros_Disponiveis *aux2, *aux3;
     int identificador;
     cliente1 = NULL;
     aux1 = NULL;
+    aux2 = NULL;
+    aux3 = NULL;
 
     if(cliente->prox != NULL)
     {
         do
         {
             identificador = 0;
-            
+            if(strcmp(cliente->prox->Nome, cliente->Nome) <= 0)
+            {
+                identificador++;
+                cliente1 = Aux_Cliente(cliente1, cliente->prox->cd_Identificacao, cliente->prox->Nome);
+                aux2 = cliente->prox->Emprestimo;
+                for(; aux2 != NULL; aux2 = aux2->prox)
+                {
+                    cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
+                }
+                cliente1 = Aux_Cliente(cliente1, cliente->cd_Identificacao, cliente->Nome);
+                aux2 = cliente->Emprestimo;
+                for(; aux2 != NULL; aux2 = aux2->prox)
+                {
+                    cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
+                }
+                cliente = cliente->prox;
+                cliente = cliente->prox;
+            }
+            else
+            {
+                cliente1 = Aux_Cliente(cliente1, cliente->cd_Identificacao, cliente->Nome);
+                aux2 = cliente->Emprestimo;
+                for(; aux2 != NULL; aux2 = aux2->prox)
+                {
+                    cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
+                }
+                cliente = cliente->prox;
+                cliente1 = Aux_Cliente(cliente1, cliente->cd_Identificacao, cliente->Nome);
+                aux2 = cliente->Emprestimo;
+                for(; aux2 != NULL; aux2 = aux2->prox)
+                {
+                    cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
+                }
+                cliente = cliente->prox;
+            }
+            for(; cliente != NULL; cliente = cliente->prox)
+            {
+
+                if(strcmp(cliente->Nome, cliente1->Nome) <= 0)
+                {
+                    identificador++;
+                    aux1 = Aux_Cliente(aux1, cliente1->cd_Identificacao, cliente1->Nome);
+                    aux3 = cliente1->Emprestimo;
+                    cliente1 = cliente1->prox;
+                    aux2 = cliente->Emprestimo;
+                    cliente1 = Aux_Cliente(cliente1, cliente->cd_Identificacao, cliente->Nome);
+                    for(; aux2 != NULL; aux2 = aux2->prox)
+                    {
+                        cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
+                    }
+                    cliente1 = Aux_Cliente(cliente1, aux1->cd_Identificacao, aux1->Nome);
+                    for(; aux3 != NULL; aux3 = aux3->prox)
+                    {
+                        cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux3->cd_registro, aux3->Titulo, aux3->Assunto, aux3->Autor);
+                    }
+                    aux1 = aux1->prox;
+                }
+                else
+                {
+                    cliente1 = Aux_Cliente(cliente1, cliente->cd_Identificacao, cliente->Nome);
+                    aux2 = cliente->Emprestimo;
+                    for(; aux2 != NULL; aux2 = aux2->prox)
+                    {
+                        cliente1->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente1->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);                      
+                    }
+                }
+            }
+            for(; cliente1 != NULL; cliente1 = cliente1->prox)
+            {
+                aux2 = cliente1->Emprestimo;
+                cliente = Aux_Cliente(cliente, cliente1->cd_Identificacao, cliente1->Nome);
+                for(; aux2 != NULL; aux2 = aux2->prox)
+                {
+                    cliente->Emprestimo = Inputar_Disponivel_Ordenadamente(cliente->Emprestimo, aux2->cd_registro, aux2->Titulo, aux2->Assunto, aux2->Autor);
+                }
+            }
         } while (identificador != 0);
         
     }
-    else
-    {
-        return cliente;
-    }
+    return cliente;
 }
 
 //A função abaixo identifica se o livro digitado pelo usuário, já foi anteriormente cadastrado.
@@ -1210,6 +1284,7 @@ int main()
                     break;
                 }
                 cliente = Aux_Cliente(cliente, Codigo_Cliente, nome);
+                cliente = Ordenamento_Cliente(cliente);
                 system("cls");
                 printf("O cliente \"%s\" foi cadastrado com sucesso!!\n", nome);
                 printf("O código do cliente é: %i\n\n", Codigo_Cliente);
@@ -1361,11 +1436,13 @@ int main()
                                 if(opcao == 3)
                                 {
                                     emprestimo_codigo_cliente_e_livro(&L_D, &Livro_emprestado, &cliente, cd_aux_cliente, cd_aux_Disponivel);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Empréstimo realizado com sucesso!!!\n\n");
                                 }
                                 else
                                 {
                                     devolucao_codigo_cliente_e_livro(&L_D, &Livro_emprestado, &cliente, cd_aux_cliente, cd_aux_Disponivel);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Devolução realizada com sucesso!!!\n\n");
                                 }
                                 system("pause");
@@ -1439,11 +1516,13 @@ int main()
                                 if(opcao == 3)
                                 {
                                     emprestimo_codigo_cliente_titulo_livro(&L_D, &Livro_emprestado, &cliente, cd_aux_cliente, titulo);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Empréstimo realizado com sucesso!!!\n\n");
                                 }
                                 else
                                 {
                                     devolucao_codigo_cliente_titulo_livro(&L_D, &Livro_emprestado, &cliente, cd_aux_cliente, titulo);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Devolução realizada com sucesso!!!\n\n");
                                 }
                                 system("pause");
@@ -1563,11 +1642,13 @@ int main()
                                 if(opcao == 3)
                                 {
                                     emprestimo_nome_cliente_e_codigo_Livro(&L_D, &Livro_emprestado, &cliente, nome, cd_aux_Disponivel);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Empréstimo realizado com sucesso!!!\n\n");
                                 }
                                 else
                                 {
                                     devolucao_nome_cliente_e_codigo_livro(&L_D, &Livro_emprestado,& cliente, nome, cd_aux_Disponivel);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Devolução realizada com sucesso!!!\n\n");
                                 }
                                 system("pause");
@@ -1642,11 +1723,13 @@ int main()
                                 if(opcao == 3)
                                 {
                                     emprestimo_nome_cliente_e_Livro(&L_D, &Livro_emprestado, &cliente, nome, titulo);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Empréstimo realizado com sucesso!!!\n\n");
                                 }
                                 else
                                 {
                                     devolucao_nome_cliente_e_livro(&L_D, &Livro_emprestado, &cliente, nome, titulo);
+                                    cliente = Ordenamento_Cliente(cliente);
                                     printf("Devolução realizada com sucesso!!!\n\n");
                                 }
                                 system("pause");
