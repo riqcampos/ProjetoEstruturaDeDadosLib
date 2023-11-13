@@ -2246,6 +2246,14 @@ int main()
                                         }
                                     }
                                 }
+                                system("cls");
+                                printf("Digite qualquer coisa diferente de \"n ou N\" caso deseje realizar alguma outra alteração em algum livro: ");
+                                scanf("%s", &res[0]);
+                                res[0] = toupper(res[0]);
+                                if(res[0] == 'N')
+                                {
+                                    break;
+                                }
                             }
                         }
                         else
