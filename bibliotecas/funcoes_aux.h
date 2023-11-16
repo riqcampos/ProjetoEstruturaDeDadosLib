@@ -7,6 +7,16 @@
 #include "disponiveis.h"
 #include "clientF.h"
 
+/*Nas funções 8 função abaixo onde tais emprestam e devolvem os livros, a pequena dificuldade não foi na construção de um código funcional
+que alterasse as lista para coseguir realizar uma devlução ou um empréstimo de um livro, mas sim, a dificuldade pelo qual enfrentamos, foi
+em fazer o código funcionar dentro de uma função void, já que após divérsas pesquisas, a manipulação de listas dentro de uma função void
+na qual estavamos tentando fazer, não deveria receber o ponteiro da lista, mas sim, um duplo ponteiro da lista. Portanto, após uma breve
+modificação na lógica dos códigos abaixo, nas váriaveis de parâmetro e na chamada de cada função, enfim, a modificação das listas usando cada
+função foi concluida, e assim conseguimos realizar as modificações nas listas dentro da função. */
+
+//Abaixo estão todas as funções usadas para realizar o empréstimo de livros.
+
+
 void emprestimo_codigo_cliente_e_livro(Livros_Disponiveis **L_Disponiveis, Livros_Emprestados **L_Emprestados, Cliente **cliente, int codigo_cliente, int codigo_livro)
 {
     Livros_Disponiveis *aux1, *L_Disponiveis1, *aux2;
