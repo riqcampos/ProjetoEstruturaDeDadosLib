@@ -1096,7 +1096,7 @@ int main()
                                     fflush(stdin);
                                     fgets(nome, Tam_Nome, stdin);
                                     identificador = 0;
-                                    if(titulo[0] == ' ')
+                                    if(nome[0] == ' ')
                                     {
                                         printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
                                         system("pause");
