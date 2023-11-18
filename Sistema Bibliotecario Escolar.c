@@ -1094,7 +1094,7 @@ int main()
                                     system("cls");
                                     printf("Digite o nome do cliente: ");
                                     fflush(stdin);
-                                    fgets(nome, Tam_Nome, stdin);
+                                    gets(nome);
                                     identificador = 0;
                                     if(nome[0] == ' ')
                                     {
@@ -1126,7 +1126,7 @@ int main()
                                             if(identificador != 0)
                                             {
                                                 identificador = 0;
-                                                printf("Não se pode ter digitação de número no nome do cliente coco.\n\n");
+                                                printf("Não se pode ter digitação de número no nome do cliente.\n\n");
                                                 system("pause");
                                                 system("cls");
                                             }
