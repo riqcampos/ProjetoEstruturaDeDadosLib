@@ -88,7 +88,7 @@ int main()
                         printf("Digite o título do Livro: %s\n", titulo);
                         continue;
                     }
-                    
+
                     break;
                 }
                 while(identificador == 0)
@@ -1036,7 +1036,7 @@ int main()
                                             system("cls");
                                         }
                                     }
-                                    
+
                                     printf("Digite qualquer coisa diferente de \"n ou N\" para continuar digitando um título: ");
                                     scanf("%s", &res[0]);
                                     res[0] = toupper(res[0]);
@@ -1065,7 +1065,7 @@ int main()
                                 }
                                 else
                                 {
-                                    if(Identificador_livro_existente_por_codigo(L_D, cd_aux_cliente) == 1)
+                                    if(Identificador_Clientes_Existentes_codigo(cliente, cd_aux_cliente) == 1)
                                     {
                                         identificador = 0;
                                         system("cls");
@@ -1094,7 +1094,8 @@ int main()
                                     system("cls");
                                     printf("Digite o nome do cliente: ");
                                     fflush(stdin);
-                                    gets(nome);
+                                    fgets(nome, Tam_Nome, stdin);
+                                    identificador = 0;
                                     if(titulo[0] == ' ')
                                     {
                                         printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
@@ -1103,7 +1104,7 @@ int main()
                                     }
                                     else
                                     {
-                                        if(isdigit(nome[0]) == 1)
+                                        if(isdigit(nome[0]) != 0)
                                         {
                                             printf("Não se pode ter número no nome do cliente.\n\n");
                                             system("pause");
@@ -1115,7 +1116,7 @@ int main()
                                             identificador = 0;
                                             for(i = 1; i < Tam_Nome; i++)
                                             {
-                                                if(isdigit(nome[i]) == 1)
+                                                if(isdigit(nome[i]))
                                                 {
                                                     identificador++;
                                                     break;
@@ -1125,7 +1126,7 @@ int main()
                                             if(identificador != 0)
                                             {
                                                 identificador = 0;
-                                                printf("Não se pode ter digitação de número no nome do cliente.\n\n");
+                                                printf("Não se pode ter digitação de número no nome do cliente coco.\n\n");
                                                 system("pause");
                                                 system("cls");
                                             }
@@ -1432,7 +1433,7 @@ int main()
                                         printf("O titulo do livro foi alterado com sucesso!!\n\n");
                                         system("pause");
                                         system("cls");
-                                    }   
+                                    }
                                     else
                                     {
                                         identificador = 0;
@@ -1489,7 +1490,7 @@ int main()
                                             printf("O assunto do livro foi alterado com sucesso!!\n\n");
                                             system("pause");
                                             system("cls");
-                                        }   
+                                        }
                                         else
                                         {
                                             identificador = 0;
@@ -1574,7 +1575,7 @@ int main()
                                                 printf("O nome do autor foi alterado com sucesso!!\n\n");
                                                 system("pause");
                                                 system("cls");
-                                            }   
+                                            }
                                             else
                                             {
                                                 identificador = 0;
