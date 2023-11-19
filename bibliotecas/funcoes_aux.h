@@ -661,4 +661,16 @@ void Editar_autor_livros_emprestados_e_cliente(Livros_Emprestados **L_Emprestado
     *cliente = aux1;
 }
 
+void remocao_enter(char nome[])
+{
+    int i;
+    for(i = 0; nome[i] != '\0'; i++)
+    {
+        if(nome[i]  == '\n')
+        {
+            nome[i] = '\0';
+            break;
+        }
+    }
+}
 #endif
