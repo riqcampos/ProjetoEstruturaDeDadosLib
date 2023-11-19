@@ -56,7 +56,7 @@ int main()
                 {
                     printf("Digite o título do Livro: ");
                     fflush(stdin);
-                    gets(titulo);
+                    fgets(titulo, Tam_Nome, stdin);
                     if(titulo[0] == ' ')
                     {
                         printf("\nOOOPS!! No início da digitação, há um espaço em branco.\n\n");
@@ -79,7 +79,7 @@ int main()
                 {
                     printf("Digite o assunto do livro: ");
                     fflush(stdin);
-                    gets(assunto);
+                    fgets(assunto, Tam_Assunto, stdin);
                     if(assunto[0] == ' ')
                     {
                         printf("\nOOOPS!!! tem um espaço vazio no início da digitação.\n\n");
@@ -95,7 +95,7 @@ int main()
                 {
                     printf("Digite o nome do autor(a) do livro: ");
                     fflush(stdin);
-                    gets(autor);
+                    fgets(autor, Tam_Nome, stdin);
 
                     if(autor[0] == ' ')
                     {
@@ -191,7 +191,7 @@ int main()
                 {
                     printf("Digite o nome do(a) cliente: ");
                     fflush(stdin);
-                    gets(nome);
+                    fgets(nome, Tam_Nome, stdin);
                     if(Identificador_Clientes_Existentes(cliente, nome))
                     {
                         printf("OOOPS!!! O(A) cliente já foi cadastrado no sistema.\n\n");
@@ -402,7 +402,7 @@ int main()
                                 system("cls");
                                 printf("Digite o título do livro: ");
                                 fflush(stdin);
-                                gets(titulo);
+                                fgets(titulo, Tam_Nome, stdin);
                                 if(isdigit(titulo[0]) == 0)
                                 {
                                     titulo[0] = toupper(titulo[0]);
@@ -488,7 +488,7 @@ int main()
                         system("cls");
                         printf("Digite o nome do cliente: ");
                         fflush(stdin);
-                        gets(nome);
+                        fgets(nome, Tam_Nome, stdin);
                         nome[0] = toupper(nome[0]);
                         for(i = 1; nome[i]!= '\0'; i++)
                         {
@@ -608,7 +608,7 @@ int main()
                                 system("cls");
                                 printf("Digite o título do livro: ");
                                 fflush(stdin);
-                                gets(titulo);
+                                fgets(titulo, Tam_Nome, stdin);
                                 titulo[0] = toupper(titulo[0]);
                                 if(isdigit(titulo[0]) == 0)
                                 {
@@ -815,7 +815,7 @@ int main()
                                 {
                                     printf("Digite o nome do cliente ao lado: ");
                                     fflush(stdin);
-                                    gets(nome);
+                                    fgets(nome, Tam_Nome, stdin); 
                                     nome[0] = toupper(nome[0]);
                                     for(i = 1; nome[i] != '\0'; i++)
                                     {
@@ -914,7 +914,7 @@ int main()
                                         {
                                             printf("Digite o título do livro ao lado: ");
                                             fflush(stdin);
-                                            gets(titulo);
+                                            fgets(titulo, Tam_Nome, stdin);
                                             if(isdigit(titulo[0]) == 0)
                                             {
                                                 titulo[0] = toupper(titulo[0]);
@@ -1004,7 +1004,7 @@ int main()
                                     system("cls");
                                     printf("Digite o título do livro: ");
                                     fflush(stdin);
-                                    gets(titulo);
+                                    fgets(titulo, Tam_Nome, stdin);
                                     if(titulo[0] == ' ')
                                     {
                                         printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
@@ -1094,7 +1094,7 @@ int main()
                                     system("cls");
                                     printf("Digite o nome do cliente: ");
                                     fflush(stdin);
-                                    gets(nome);
+                                    fgets(nome, Tam_Nome, stdin);
                                     identificador = 0;
                                     if(nome[0] == ' ')
                                     {
@@ -1251,7 +1251,7 @@ int main()
                                         system("cls");
                                         printf("Digite como deseja renomear o cliente: ");
                                         fflush(stdin);
-                                        gets(nome);
+                                        fgets(nome, Tam_Nome, stdin);
                                         printf("Se deseja digitar novamente, tecle qualquer botão diferente de \"n ou N\": ");
                                         scanf("%s", &res[0]);
                                         res[0] = toupper(res[0]);
@@ -1392,7 +1392,7 @@ int main()
                                         system("cls");
                                         printf("Digite o novo titulo do livro: ");
                                         fflush(stdin);
-                                        gets(titulo);
+                                        fgets(titulo, Tam_Nome, stdin);
                                         if(titulo[0] == ' ')
                                         {
                                             printf("OOOPS!!! há um espaço em branco no inicio do titulo.\n\n");
@@ -1449,7 +1449,7 @@ int main()
                                             system("cls");
                                             printf("Digite o novo assunto do livro: ");
                                             fflush(stdin);
-                                            gets(assunto);
+                                            fgets(assunto, Tam_Assunto, stdin);
                                             if(assunto[0] == ' ')
                                             {
                                                 printf("OOOPS!!! há um espaço em branco no inicio do assunto.\n\n");
@@ -1506,7 +1506,7 @@ int main()
                                                 system("cls");
                                                 printf("Digite o novo nome do autor do livro: ");
                                                 fflush(stdin);
-                                                gets(autor);
+                                                fgets(autor, Tam_Nome, stdin);
                                                 if(autor[0] == ' ')
                                                 {
                                                     printf("OOOPS!!! há um espaço em branco no inicio do nome do autor.\n\n");
