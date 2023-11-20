@@ -673,4 +673,20 @@ void remocao_enter(char nome[])
         }
     }
 }
+
+int identificador_vazio(char string)
+{
+    if(isdigit(string) == 0)
+    {
+        if(isupper(string) == 0)
+        {
+            if(islower(string) == 0)
+            {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 #endif

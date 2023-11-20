@@ -58,6 +58,14 @@ int main()
                     fflush(stdin);
                     fgets(titulo, Tam_Nome, stdin);
                     remocao_enter(titulo);
+                    
+                    if(identificador_vazio(titulo[0]) == 1)
+                    {
+                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                        system("pause");
+                        system("cls");
+                        continue;
+                    }
 
                     if(titulo[0] == ' ')
                     {
@@ -93,6 +101,14 @@ int main()
                         continue;
                     }
 
+                    if(identificador_vazio(assunto[0]) == 1)
+                    {
+                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                        system("pause");
+                        system("cls");
+                        continue;
+                    }
+
                     break;
                 }
                 while(identificador == 0)
@@ -111,6 +127,15 @@ int main()
                         printf("Digite o assunto do livro: %s\n", assunto);
                         continue;
                     }
+                    
+                    if(identificador_vazio(autor[0]) == 1)
+                    {
+                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                        system("pause");
+                        system("cls");
+                        continue;
+                    }
+
                     for(i = 0; autor[i] != '\0'; i++)
                     {
                         if(isdigit(autor[i]))
@@ -198,6 +223,14 @@ int main()
                     fflush(stdin);
                     fgets(nome, Tam_Nome, stdin);
                     remocao_enter(nome);
+
+                    if(identificador_vazio(nome[0]) == 1)
+                    {
+                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                        system("pause");
+                        system("cls");
+                        continue;
+                    }
 
                     if(Identificador_Clientes_Existentes(cliente, nome))
                     {
@@ -412,6 +445,14 @@ int main()
                                 fgets(titulo, Tam_Nome, stdin);
                                 remocao_enter(titulo);
 
+                                if(identificador_vazio(titulo[0]) == 1)
+                                {
+                                    printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                    system("pause");
+                                    system("cls");
+                                    continue;
+                                }
+
                                 if(isdigit(titulo[0]) == 0)
                                 {
                                     titulo[0] = toupper(titulo[0]);
@@ -499,6 +540,14 @@ int main()
                         fflush(stdin);
                         fgets(nome, Tam_Nome, stdin);
                         remocao_enter(nome);
+
+                        if(identificador_vazio(nome[0]) == 1)
+                        {
+                            printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                            system("pause");
+                            system("cls");
+                            continue;
+                        }
 
                         nome[0] = toupper(nome[0]);
                         for(i = 1; nome[i]!= '\0'; i++)
@@ -621,6 +670,14 @@ int main()
                                 fflush(stdin);
                                 fgets(titulo, Tam_Nome, stdin);
                                 remocao_enter(titulo);
+
+                                if(identificador_vazio(titulo[0]) == 1)
+                                {
+                                    printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                    system("pause");
+                                    system("cls");
+                                    continue;
+                                }
 
                                 titulo[0] = toupper(titulo[0]);
                                 if(isdigit(titulo[0]) == 0)
@@ -831,6 +888,14 @@ int main()
                                     fgets(nome, Tam_Nome, stdin);
                                     remocao_enter(nome);
 
+                                    if(identificador_vazio(nome[0]) == 1)
+                                    {
+                                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                        continue;
+                                    }
+
                                     nome[0] = toupper(nome[0]);
                                     for(i = 1; nome[i] != '\0'; i++)
                                     {
@@ -932,6 +997,14 @@ int main()
                                             fgets(titulo, Tam_Nome, stdin);
                                             remocao_enter(titulo);
 
+                                            if(identificador_vazio(titulo[0]) == 1)
+                                            {
+                                                printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                                system("pause");
+                                                system("cls");
+                                                continue;
+                                            }
+
                                             if(isdigit(titulo[0]) == 0)
                                             {
                                                 titulo[0] = toupper(titulo[0]);
@@ -1024,6 +1097,14 @@ int main()
                                     fgets(titulo, Tam_Nome, stdin);
                                     remocao_enter(titulo);
 
+                                    if(identificador_vazio(titulo[0]) == 1)
+                                    {
+                                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                        continue;
+                                    }
+
                                     if(titulo[0] == ' ')
                                     {
                                         printf("OOOPS!! há um espaço em branco no início do titulo.\n\n");
@@ -1115,6 +1196,14 @@ int main()
                                     fflush(stdin);
                                     fgets(nome, Tam_Nome, stdin);
                                     remocao_enter(nome);
+
+                                    if(identificador_vazio(nome[0]) == 1)
+                                    {
+                                        printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                        system("pause");
+                                        system("cls");
+                                        continue;
+                                    }
 
                                     identificador = 0;
                                     if(nome[0] == ' ')
@@ -1275,6 +1364,14 @@ int main()
                                         fgets(nome, Tam_Nome, stdin);
                                         remocao_enter(nome);
 
+                                        if(identificador_vazio(nome[0]) == 1)
+                                        {
+                                            printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                            system("pause");
+                                            system("cls");
+                                            continue;
+                                        }
+
                                         printf("Se deseja digitar novamente, tecle qualquer botão diferente de \"n ou N\": ");
                                         scanf("%s", &res[0]);
                                         res[0] = toupper(res[0]);
@@ -1418,6 +1515,14 @@ int main()
                                         fgets(titulo, Tam_Nome, stdin);
                                         remocao_enter(titulo);
 
+                                        if(identificador_vazio(titulo[0]) == 1)
+                                        {
+                                            printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                            system("pause");
+                                            system("cls");
+                                            continue;
+                                        }
+
                                         if(titulo[0] == ' ')
                                         {
                                             printf("OOOPS!!! há um espaço em branco no inicio do titulo.\n\n");
@@ -1476,6 +1581,14 @@ int main()
                                             fflush(stdin);
                                             fgets(assunto, Tam_Assunto, stdin);
                                             remocao_enter(assunto);
+
+                                            if(identificador_vazio(assunto[0]) == 1)
+                                            {
+                                                printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                                system("pause");
+                                                system("cls");
+                                                continue;
+                                            }
                                         
                                             if(assunto[0] == ' ')
                                             {
@@ -1535,6 +1648,14 @@ int main()
                                                 fflush(stdin);
                                                 fgets(autor, Tam_Nome, stdin);
                                                 remocao_enter(autor);
+
+                                                if(identificador_vazio(autor[0]) == 1)
+                                                {
+                                                    printf("\nOOOPS!! nenhuma digitação identificada, por favor tente novamente.\n\n");
+                                                    system("pause");
+                                                    system("cls");
+                                                    continue;
+                                                }
                                                 
                                                 if(autor[0] == ' ')
                                                 {
