@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/PP/Downloads/ProjetoEstruturaDeDadosLib",
-      "program": "c:/Users/PP/Downloads/ProjetoEstruturaDeDadosLib/build/Debug/outDebug",
+      "cwd": "c:/Users/Rick/OneDrive/Área de Trabalho/ProjetoEstruturaDeDadosLib",
+      "program": "c:/Users/Rick/OneDrive/Área de Trabalho/ProjetoEstruturaDeDadosLib/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
