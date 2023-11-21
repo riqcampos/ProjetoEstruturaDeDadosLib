@@ -674,13 +674,13 @@ void remocao_enter(char nome[])
     }
 }
 
-int identificador_vazio(char string)
+int identificador_vazio(char str)
 {
-    if(isdigit(string) == 0)
+    if(isdigit(str) == 0)
     {
-        if(isupper(string) == 0)
+        if(isupper(str) == 0)
         {
-            if(islower(string) == 0)
+            if(islower(str) == 0)
             {
                 return 1;
             }
